@@ -28,7 +28,7 @@ Identify customers with both funded savings and investment plans, sorted by tota
 **Approach:**  
 - Joined `users_customuser`, `plans_plan`, and `savings_savingsaccount` to access customer and transaction data.  
 - Used conditional aggregation to count savings (`is_regular_savings = 1`) and investment (`is_a_fund = 1`) plans.  
-- Summed `confirmed_amount` (converted from kobo to NGN) for total deposits.  
+- Summed `confirmed_amount` (converted from kobo to NGN) and (Roundup result to 2 decimal place) for total deposits.  
 - Filtered for customers with at least one of each plan type using `HAVING`.  
 - Sorted by total deposits descending for prioritization.  
 
