@@ -17,8 +17,8 @@ SELECT
 
     -- Sum all confirmed deposit amounts (stored in kobo, so divide by 100)
     -- COALESCE prevents NULL when there's no deposit
-    COALESCE(SUM(s.confirmed_amount) / 100.0, 0) AS total_deposits
-
+    -- Roundup the decimal numbers to 2
+    ROUND(COALESCE(SUM(s.confirmed_amount) / 100.0, 0), 2) AS total_deposits
 FROM 
     users_customuser u
 
